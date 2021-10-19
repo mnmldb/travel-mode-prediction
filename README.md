@@ -6,14 +6,14 @@ Understanding and predicting travel mode choices of citizens are essential in tr
 
 ## Report
 
-Click here to see the report.
+Click [here](https://github.com/mnmldb/travel-mode-prediction/blob/main/Report.pdf) to see the report.
 
 ## Notebook
-### in  `eda `
-- `Anomaly_Clustering.ipynb `: Data Preprossesing, Exploratory Data Analysis (PCA), Anomaly Detection, and Clustering (KMeans)
-### in  `model `
-- `Interpretable_Models.ipynb `: Classification Models (Bayesian Networks, Random Forest) with Down/Over Sampling
-- `NN_Model.ipynb `: Classification Model (Neural Network) with Down/Over Sampling
+#### in  `eda `
+- `Anomaly_Clustering.ipynb`: Data Preprossesing, Exploratory Data Analysis (PCA), Anomaly Detection, and Clustering (KMeans)
+#### in  `model `
+- `Interpretable_Models.ipynb`: Classification Models (Bayesian Networks, Random Forest) with Down Sampling and Feature Importances
+- `NN_Model.ipynb`: Classification Model (Neural Network) with Down/Over Sampling (SMOTE) and Feature Importances (SHAP)
 
 ## Dataset
 
@@ -31,5 +31,13 @@ Our target variable (`TRPTRANS`) consists of the 24 travel modes in total, inclu
 ## Result
 
 ### Classification Performances
+The below table shows the classification performances of all approaches. Neural Network with the optimized loss function was the best model, and we could achieve more than 0.8 of the F1 score.
+
+![classfication_performances](https://user-images.githubusercontent.com/47055092/138004876-d6697b50-8e22-4a30-b060-d78002d83183.png)
 
 ### Feature Importances
+The below table shows the top feature importances from different approaches. In addition to Neural Network and Random Forest, we created 2 clusters of trips by KMeans except for the target variable and computed the difference of each cluster’s feature average. We thought the more significant difference could be a proxy for feature importances.
+
+![feature_importances](https://user-images.githubusercontent.com/47055092/138005012-a2a43d5a-1b2f-4fe0-9ba6-b89b3c27651b.png)
+
+The density of housing and population in origin and destination were commonly critical in all models. Loop trip, which indicates the trip has the same origin and destination, was significantly used by Random Forest and Kmeans. Compared to Random Forest and KMeans, Neural Network captured feature importances uniquely. Neural Network utilized age, home-base trip flag, and trip weight, which is essential for travel mode choice but is not well captured by Random Forest and KMeans.
