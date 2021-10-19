@@ -9,7 +9,9 @@ Understanding and predicting travel mode choices of citizens are essential in tr
 Click here to see the report.
 
 ## Notebook
+### in  `eda `
 - `Anomaly_Clustering.ipynb `: Data Preprossesing, Exploratory Data Analysis (PCA), Anomaly Detection, and Clustering (KMeans)
+### in  `model `
 - `Interpretable_Models.ipynb `: Classification Models (Bayesian Networks, Random Forest) with Down/Over Sampling
 - `NN_Model.ipynb `: Classification Model (Neural Network) with Down/Over Sampling
 
