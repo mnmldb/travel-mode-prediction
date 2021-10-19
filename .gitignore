@@ -2,10 +2,8 @@
 Data/
 
 # files
-*.pdf
 *.mp4
 *.gdoc
-*.png
 *.txt
 *.xlsx
 *.zip
